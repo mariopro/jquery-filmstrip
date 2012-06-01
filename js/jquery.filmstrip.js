@@ -101,15 +101,20 @@
         , $thumb = $selector.parent().children().eq(index)
         , $thumbs = $selector.parent()
         , $last = $thumbs.children().last()
-        , thumbsWidth = $last.position().left + $selector.outerWidth();
+        , thumbsWidth = $last.position().left + $last.width() + $selector.outerWidth() - $selector.width();
       $selector.removeClass('selector');
       $thumb.addClass('selector');
       $selector.find('.pointer').appendTo($thumb);
       var thumbsPos = this.$element.width() / 2 - $thumb.position().left - $thumb.width() / 2;
+
       if (thumbsPos > 0) {
         thumbsPos = 0;
       } else if (thumbsPos <= this.$element.width() - thumbsWidth) {
-        thumbsPos = this.$element.width() - thumbsWidth;
+        //if ($thumbs.position().left == 0) {
+          //thumbsPos = 0;
+        //} else {
+          thumbsPos = this.$element.width() - thumbsWidth;
+        //}
       }
       $thumbs.animate({left:thumbsPos}, 500, 'swing');
 
@@ -126,8 +131,6 @@
       $next.show();
 
       $active.fadeOut(500, function() {
-      //$active.fadeOut(500);
-      //$next.fadeIn(500, function() {
         $active.removeClass('active')
         $next.addClass('active')
         that.sliding = false
