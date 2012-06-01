@@ -1,3 +1,7 @@
+/*
+ * jQuery filmstrip plugin
+ */
+
 !function ($) {
 
   "use strict"; // jshint ;_;
