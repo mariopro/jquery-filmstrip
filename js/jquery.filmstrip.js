@@ -110,11 +110,11 @@
       if (thumbsPos > 0) {
         thumbsPos = 0;
       } else if (thumbsPos <= this.$element.width() - thumbsWidth) {
-        //if ($thumbs.position().left == 0) {
-          //thumbsPos = 0;
-        //} else {
+        if ($thumbs.position().left == 0) {
+          thumbsPos = 0;
+        } else {
           thumbsPos = this.$element.width() - thumbsWidth;
-        //}
+        }
       }
       $thumbs.animate({left:thumbsPos}, 500, 'swing');
 
